@@ -1,4 +1,15 @@
 package meed.voll.api.direction;
 
-public record DirectionData(String calle, String distrito, String ciudad, String numero, String complemento) {
+import jakarta.validation.constraints.NotBlank;
+
+public record DirectionData(@NotBlank
+                            String calle,
+                            @NotBlank
+                            String distrito,
+                            @NotBlank
+                            String ciudad,
+                            @NotBlank
+                            String numero,
+                            @NotBlank
+                            String complemento) {
 }

@@ -7,8 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import meed.voll.api.direction.Direction;
 
-@Table(name="medicos")
-@Entity(name="Medico")
+@Table(name = "medicos")
+@Entity(name = "Medico")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,4 +25,12 @@ public class Medico {
     private Especialidad especialidad;
     @Embedded
     private Direction direccion;
+
+    public Medico(MedicDataReg medicDataReg) {
+        this.nombre = medicDataReg.nombre();
+        this.email = medicDataReg.email();
+        this.documento = medicDataReg.documento();
+        this.especialidad = medicDataReg.especialidad();
+        this.direccion = new Direction(medicDataReg.direccion());
+    }
 }
