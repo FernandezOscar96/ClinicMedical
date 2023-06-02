@@ -6,6 +6,9 @@ import meed.voll.api.medico.MedicListData;
 import meed.voll.api.medico.Medico;
 import meed.voll.api.medico.MedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,7 +26,7 @@ public class MedicoController {
     }
 
     @GetMapping
-    public List<MedicListData> listadoMedico() {
-        return medicoRepository.findAll().stream().map(MedicListData::new).toList();
+    public Page<MedicListData> listadoMedico(@PageableDefault(size=2) Pageable paginacion) {
+        return medicoRepository.findAll(paginacion).map(MedicListData::new);
     }
 }
