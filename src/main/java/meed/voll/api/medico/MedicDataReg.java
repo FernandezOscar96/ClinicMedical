@@ -14,6 +14,8 @@ public record MedicDataReg(@NotBlank
                            @Email
                            String email,
                            @NotBlank
+                           String telefono,
+                           @NotBlank
                            @Pattern(regexp = "\\d{4,6}")
                            String documento,
                            @NotNull
@@ -21,6 +23,7 @@ public record MedicDataReg(@NotBlank
                            @NotNull
                            @Valid
                            DirectionData direccion) {
+
 
 
 }
