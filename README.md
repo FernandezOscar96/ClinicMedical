@@ -18,3 +18,4 @@ Tecnologias
 
 Proyecto a desarrollar:
 Clinica medica
+* unicamente el Back-End
