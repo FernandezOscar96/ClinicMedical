@@ -42,9 +42,9 @@ public class MedicoController {
     }
 
     @GetMapping
-    public Page<MedicListData> listadoMedico(@PageableDefault(size = 2) Pageable paginacion) {
+    public ResponseEntity<Page<MedicListData>>  listadoMedico(@PageableDefault(size = 2) Pageable paginacion) {
         //return medicoRepository.findAll(paginacion).map(MedicListData::new);
-        return medicoRepository.findByActivoTrue(paginacion).map(MedicListData::new);
+        return ResponseEntity.ok(medicoRepository.findByActivoTrue(paginacion).map(MedicListData::new));
 
     }
 
@@ -76,12 +76,22 @@ public class MedicoController {
         return ResponseEntity.noContent().build();
     }
 
-
-
-    /*
-    DELETE en base de datos
-    public void eliminarMedico(@PathVariable Long id){
+    @GetMapping("/{id}")
+    @Transactional
+    public ResponseEntity<RequestMedicData> retornMedicData(@PathVariable Long id) {
         Medico medico = medicoRepository.getReferenceById(id);
-        medicoRepository.delete(medico);
-    }*/
+        var datosMedicos = new RequestMedicData(
+                medico.getId(),
+                medico.getNombre(),
+                medico.getEmail(),
+                medico.getTelefono(),
+                medico.getEspecialidad().toString(),
+                new DirectionData(
+                        medico.getDireccion().getCalle(),
+                        medico.getDireccion().getDistrito(),
+                        medico.getDireccion().getCiudad(),
+                        medico.getDireccion().getNumero(),
+                        medico.getDireccion().getComplemento()));
+        return ResponseEntity.ok(datosMedicos);
+    }
 }
