@@ -50,7 +50,7 @@ public class MedicoController {
 
     @PutMapping
     @Transactional
-    public ResponseEntity actualizarMedico(@RequestBody @Valid MedicActData medicActData) {
+    public ResponseEntity<RequestMedicData> actualizarMedico(@RequestBody @Valid MedicActData medicActData) {
         Medico medico = medicoRepository.getReferenceById(medicActData.id());
         medico.actualizarDatos(medicActData);
         return ResponseEntity.ok(new RequestMedicData(
@@ -78,7 +78,7 @@ public class MedicoController {
 
     @GetMapping("/{id}")
     @Transactional
-    public ResponseEntity<RequestMedicData> retornMedicData(@PathVariable Long id) {
+    public ResponseEntity<RequestMedicData> returnMedicData(@PathVariable Long id) {
         Medico medico = medicoRepository.getReferenceById(id);
         var datosMedicos = new RequestMedicData(
                 medico.getId(),
