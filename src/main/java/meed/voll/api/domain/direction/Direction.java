@@ -1,4 +1,4 @@
-package meed.voll.api.direction;
+package meed.voll.api.domain.direction;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;

@@ -1,7 +1,7 @@
-package meed.voll.api.medico;
+package meed.voll.api.domain.medico;
 
 import jakarta.validation.constraints.NotNull;
-import meed.voll.api.direction.DirectionData;
+import meed.voll.api.domain.direction.DirectionData;
 
 public record MedicActData(
         @NotNull Long id,

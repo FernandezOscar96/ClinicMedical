@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import meed.voll.api.direction.Direction;
+import meed.voll.api.domain.direction.Direction;
 
 @Table(name = "pacientes")
 @Entity(name = "Paciente")

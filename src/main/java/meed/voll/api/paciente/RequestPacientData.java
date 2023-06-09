@@ -1,6 +1,6 @@
 package meed.voll.api.paciente;
 
-import meed.voll.api.direction.DirectionData;
+import meed.voll.api.domain.direction.DirectionData;
 
 public record RequestPacientData(Long id,
                                  String nombre,

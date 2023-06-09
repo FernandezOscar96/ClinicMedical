@@ -1,4 +1,4 @@
-package meed.voll.api.direction;
+package meed.voll.api.domain.direction;
 
 import jakarta.validation.constraints.NotBlank;
 

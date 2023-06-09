@@ -2,11 +2,7 @@ package meed.voll.api.controller;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
-import meed.voll.api.direction.DirectionData;
-import meed.voll.api.medico.MedicActData;
-import meed.voll.api.medico.MedicListData;
-import meed.voll.api.medico.Medico;
-import meed.voll.api.medico.RequestMedicData;
+import meed.voll.api.domain.direction.DirectionData;
 import meed.voll.api.paciente.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

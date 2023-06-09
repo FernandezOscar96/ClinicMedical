@@ -5,7 +5,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
-import meed.voll.api.direction.DirectionData;
+import meed.voll.api.domain.direction.DirectionData;
 
 public record PacientDataReg(
                             @NotBlank
